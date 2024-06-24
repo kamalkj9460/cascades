@@ -1,0 +1,28 @@
+<script>
+    var site_nav_link_burger = true;
+    var site_cart = true;
+    var site_login = true;  
+    document.addEventListener("DOMContentLoaded", function() {
+        var icon_menu = document.querySelector("header#shopify-section-header-bottom [data-menu-drawer]");
+        icon_menu.addEventListener("click", function() {
+            if(site_nav_link_burger) {
+                event.preventDefault();
+                site_nav_link_burger = false;
+            }
+        });
+        var icon_menu1 = document.querySelector(".t4s-site-nav__icon.t4s-site-nav__account .t4s-icon--account");
+        icon_menu1.addEventListener("click", function() {
+            if(site_login) {
+                event.preventDefault();
+                site_login = false;
+            }
+        });
+        var icon_menu2 = document.querySelector("header .t4s-site-nav__icon.t4s-site-nav__cart svg.t4s-icon--cart");
+        icon_menu2.addEventListener("click", function() {
+            if(site_cart) {
+                event.preventDefault();
+                site_cart = false;
+            }
+        });        
+    })
+</script>

@@ -42,7 +42,6 @@
   {{- 'base.css' | asset_url | stylesheet_tag: preload: true -}}
   {%- if isRTL %}{{- 'theme_rtl.css' | asset_url | stylesheet_tag: preload: true -}}{% endif -%}
   {%- if settings.bootstrap_css %}{{- 'bootstrap.min.css' | asset_url | stylesheet_tag -}}{% endif -%}
-
   {%- style -%}
 
     {%- if font_source == '1' -%}
@@ -54,14 +53,16 @@
      
       {%- capture t4s_font_fm1 -%}{{ fm_sp1 }}, {{ font_1.fallback_families }};{%- endcapture -%}
       {%- assign t4s_font_fm2 = t4s_font_fm1 -%}{%- assign t4s_font_fm3 = t4s_font_fm1 -%}
-
-      {%- for variant in font_1.variants -%}{{ variant | font_face: font_display: 'swap' }}{%- endfor -%}
-
-      {%- if fm_sp2 != fm_sp1 -%}
-        {%- capture t4s_font_fm2 -%}{{ fm_sp2 }}, {{ font_2.fallback_families }};{%- endcapture -%}
-        {%- for variant in font_2.variants -%}{{ variant | font_face: font_display: 'swap' }}{%- endfor -%}
-      {%- endif -%}
-
+      {% unless template contains 'product' %}
+        {%- for variant in font_1.variants -%}{{ variant | font_face: font_display: 'swap' }}{%- endfor -%}
+       {% endunless %} 
+  
+        {%- if fm_sp2 != fm_sp1 -%}
+          {%- capture t4s_font_fm2 -%}{{ fm_sp2 }}, {{ font_2.fallback_families }};{%- endcapture -%}
+          {% unless template contains 'product' %}
+          {%- for variant in font_2.variants -%}{{ variant | font_face: font_display: 'swap' }}{%- endfor -%}
+          {% endunless %}
+        {%- endif -%}
       {%- if fm_sp3 != fm_sp1 -%}
         {%- capture t4s_font_fm3 -%}{{ fm_sp3 }}, {{ font_3.fallback_families }};{%- endcapture -%}
         {{- font_3 | font_face: font_display: 'swap' -}}
@@ -270,6 +271,7 @@
       }
     {%- endif -%}
   {%- endstyle -%}
+  <link data-href="{{- 'font-load.css' | asset_url -}}" rel="stylesheet" /> 
 
 <script>
   const isBehaviorSmooth = 'scrollBehavior' in document.documentElement.style && getComputedStyle(document.documentElement).scrollBehavior === 'smooth';
