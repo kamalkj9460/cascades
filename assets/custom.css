@@ -1,0 +1,69 @@
+/*-----------------------------------------------------------------------------/
+/ Custom Theme CSS
+/-----------------------------------------------------------------------------*/
+/*---------------- Global Custom CSS -------------------*/
+.t4s-single-product-badge {
+left: 15px;
+    right: unset;
+}
+.t4s-pr-style1 .t4s-product-btns2 {
+    align-items: flex-end !important;
+}
+
+/*---------------- Custom CSS for only desktop -------------------*/
+@media (min-width: 1025px) {
+  
+}
+
+/*---------------- Custom CSS for tablet, mobile -------------------*/
+@media (max-width: 1024px) {
+  @media only screen and (max-width: 600px) {
+  .t4s-pr_trust_seal {
+    position: relative;
+  }
+  .t4s-pr-mess_trust {
+    width: 35%;
+    text-align: left;
+    float: left;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+.product-collection-name {
+  line-height: 0.07;
+  font-size: 18px;
+  color:#000000;
+}
+}
+@media only screen and (max-width: 400px) {
+  .t4s-pr_trust_seal {
+    position: relative;
+  }
+  .t4s-pr-mess_trust {
+    width: 30%;
+    text-align: left;
+    float: left;
+    font-size: 10px;
+    margin-top: 15px;
+  }
+.product-collection-name {
+  line-height: 0.07;
+  font-size: 18px;
+  color:#000000;
+}
+.t4s-product-form__submit{
+max-width:97.5%
+}
+}
+}
+
+/*---------------- Custom CSS for only tablet -------------------*/
+@media (min-width: 768px) and (max-width: 1024px) {
+  
+}
+
+/*---------------- Custom CSS for only mobile -------------------*/
+@media (max-width: 767px){
+  .t4s-site-nav__icon.t4s-site-nav__account.t4s-pr.t4s-d-none.t4s-d-md-inline-block {
+    display: block !important;
+}
+}
